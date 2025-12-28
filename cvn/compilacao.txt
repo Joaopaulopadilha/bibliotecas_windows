@@ -1,4 +1,0 @@
-g++ -shared -o bibliotecas/cvn/cvn.jpd bibliotecas/cvn/cvn.cpp -I src -lgdi32 -O3
-
-g++ -c bibliotecas/cvn/cvn.cpp -o cvn.o -I src -O3
-ar rcs bibliotecas/cvn/libcvn.a cvn.o
