@@ -1,0 +1,11 @@
+importar cvn
+
+#ler uma imagem e salvar na memoria
+img = cvn.ler("foto.jpg")
+cinza = cvn.flip_h(img)
+cvn.exibir("janela", cinza)
+cvn.esperar(0)
+cvn.liberar(img)
+
+#salvar no formato desejado
+salvar = cvn.salvar(cinza, "foto2.jpg")
