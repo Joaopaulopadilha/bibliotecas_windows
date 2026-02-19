@@ -1,0 +1,18 @@
+importar onnx
+
+modelo = onnx_carregar("yolov8n.onnx")
+saida("Modelo carregado: " + modelo)
+onnx_confianca_minima(0.5)
+
+cam = onnx_camera_abrir(0)
+saida("Camera: " + cam)
+
+enquanto verdadeiro:
+    onnx_camera_detectar(cam, modelo)
+    onnx_exibir("Deteccao")
+    se onnx_tecla(27):
+        parar
+
+onnx_camera_fechar(cam)
+onnx_fechar_janelas()
+onnx_liberar(modelo)

@@ -1,0 +1,13 @@
+importar onnx
+
+cam = onnx_camera_abrir(0)
+saida("Camera: " + cam)
+
+enquanto verdadeiro:
+    onnx_camera_frame(cam)
+    onnx_exibir("Teste")
+    se onnx_tecla(27):
+        parar
+
+onnx_camera_fechar(cam)
+onnx_fechar_janelas()

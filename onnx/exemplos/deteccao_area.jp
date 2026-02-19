@@ -1,0 +1,18 @@
+importar onnx
+se onnx_existe("meu_modelo.onnx"):
+    saida("Modelo encontrado")
+senao:
+    saida("Modelo nao encontrado")
+
+modelo = onnx_carregar("meu_modelo.onnx")
+saida("Modelo carregado: " + modelo)
+onnx_confianca_minima(0.5)
+
+enquanto verdadeiro:
+    onnx_tela_regiao_detectar(modelo, 400, 400, 300, 300)
+    onnx_exibir("Deteccao Tela")
+    se onnx_tecla(27):
+        parar
+
+onnx_fechar_janelas()
+onnx_liberar(modelo)

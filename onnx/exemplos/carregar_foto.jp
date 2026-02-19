@@ -1,0 +1,23 @@
+importar onnx
+se onnx_existe("yolov8n.onnx"):
+    saida("Modelo encontrado")
+senao:
+    saida("Modelo nao encontrado")
+
+
+modelo = onnx_carregar("yolov8n.onnx")
+saida("Modelo carregado: " + modelo)
+
+onnx_confianca_minima(0.5)
+
+total = onnx_detectar(modelo, "teste.jpg")
+saida("Deteccoes: " + total)
+
+i = 0
+enquanto i < total:
+    saida("Classe: " + onnx_classe(i) + " Confianca: " + onnx_confianca(i))
+    saida("  X:" + onnx_x(i) + " Y:" + onnx_y(i) + " W:" + onnx_w(i) + " H:" + onnx_h(i))
+    i = i + 1
+
+
+onnx_liberar(modelo)

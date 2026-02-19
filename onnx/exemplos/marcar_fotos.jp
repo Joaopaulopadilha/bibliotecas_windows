@@ -1,0 +1,11 @@
+importar onnx
+
+modelo = onnx_carregar("yolov8n.onnx")
+onnx_confianca_minima(0.5)
+total = onnx_detectar(modelo, "teste.jpg")
+saida("Deteccoes: " + total)
+
+onnx_desenhar("teste.jpg", "resultado.jpg", 3)
+saida("Imagem salva!")
+
+onnx_liberar(modelo)
